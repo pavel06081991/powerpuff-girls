@@ -2,7 +2,10 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.header`
-  background-color: #c9c19f;
+  font-size: 2em;
+  padding: 10px 20px;
+  background-color: #3F3F3F;
+  color: white;
 `;
 
 const RootInner = styled.div`
@@ -14,7 +17,7 @@ export class Header extends PureComponent {
     return (
       <Root>
         <RootInner>
-          Header
+          Tv show inc.
         </RootInner>
       </Root>
     );

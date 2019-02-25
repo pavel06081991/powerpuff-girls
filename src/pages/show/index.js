@@ -8,6 +8,7 @@ import { Content } from '../../components/Content';
 import { Show } from '../../containers/Show';
 import { ShowList } from '../../containers/ShowList';
 import { Episode } from '../../containers/Episode';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export class ShowPage extends PureComponent {
   render() {
@@ -15,6 +16,7 @@ export class ShowPage extends PureComponent {
       <Page>
         <Header />
         <Content>
+          <Breadcrumbs />
           <Switch>
             <Route exact path="/show" component={ShowList} />
             <Route exact path="/show/:showId" component={Show} />

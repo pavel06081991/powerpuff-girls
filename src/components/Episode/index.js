@@ -2,30 +2,40 @@ import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 
 import { Error } from '../Error';
+import { SectionTitle } from '../SectionTitle';
 
 const Root = styled.div`
-  ${({ theme: { mixins, size } }) => mixins.breakpoints[size.MD]`
-    background-color: orange;
-    display: flex;
-  `}
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Logo = styled.img`
-`;
+  width: 250px;
+  height: 340px;
+  object-fit: cover;
+  margin-right: calc(100% - 250px);
 
-const Title = styled.h2`
-  margin: 10px;
-
-  ${({ theme: { mixins, size } }) => mixins.breakpoints[size.MD]`
-    padding: 0 20px;
-  `}
-
-  ${({ theme: { mixins, size } }) => mixins.exactBreakpoints[size.MD]`
-    color: blue;
+  ${({ theme: { mixins, size } }) => mixins.breakpoints[size.SM]`
+    margin-right: 0;
   `}
 `;
 
 const Description = styled.div`
+  width: 100%;
+  margin: 20px 0;
+  font-size: 22px;
+
+  &>:first-child {
+    margin-top: 0;
+  }
+
+  ${({ theme: { mixins, size } }) => mixins.breakpoints[size.SM]`
+    width: calc(100% - 290px);
+    margin: 0 20px;
+  `}
 `;
 
 export class Episode extends PureComponent {
@@ -46,11 +56,13 @@ export class Episode extends PureComponent {
       <Root>
         {!error && episode && (
           <Fragment>
-            <Logo src={episode.image.medium} />
-            <Title>
+            <SectionTitle>
               {episode.name}
-            </Title>
-            <Description dangerouslySetInnerHTML={{ __html: episode.summary }} />
+            </SectionTitle>
+            <Info>
+              <Logo src={episode.image ? episode.image.medium : ''} />
+              <Description dangerouslySetInnerHTML={{ __html: episode.summary }} />
+            </Info>
           </Fragment>
         )}
         {error && (

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  background-color: green;
+  padding: 10px 20px;
 `;
 
 const RootInner = styled.section`
